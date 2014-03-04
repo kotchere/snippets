@@ -1,0 +1,63 @@
+<?php
+/**
+* Implementation of hook_calendar_block().
+*/
+function soc_overrides_calendar_block(&$calendar, &$date, $op) {
+  switch($op) {
+    case 'load':
+      // Here the date is fixed on october 1978
+      //$calendar->month = date('m');
+      //$calendar->year = date('Y');
+
+      // Change the weekday's format and set the first day of the week to sunday.
+      $calendar->weekdays =  array(
+        'su' => 'SUN',
+        'mo' => 'MON',
+        'tu' => 'TUE',
+        'we' => 'WED',
+        'th' => 'THU',
+        'fr' => 'FRI',
+        'sa' => 'SAT',
+      );
+      break;
+    case 'alter':
+      if ($date->date == '10-19-1978') {
+        // Create a link from 19 october 1978
+        $date->content = l($date->day, "node/13");
+      }
+      else if ($date->year == 1978 && $calendar->month == 10 && $date->weekday == 'MON') {
+		$s_date = $date->year .'-'. sprintf( "%02d", $date->month ) .'-'. sprintf( "%02d", $date->day );
+		$date->content = '<a href="?q=calendar-schedule/' . $s_date . '">'.$date->day.'</a>';
+      }
+      break;
+  }
+}
+
+/**
+* init function. make sure that the default theme is used when add or editing when not an admin
+*/
+function soc_overrides_init() { 
+	global $custom_theme;
+	if (!user_access('administer') && arg(0) == 'node' && (arg(1) == 'add'||arg(1)=='edit')) {
+	  $custom_theme = variable_get('theme_default', '0');
+	  init_theme();
+	}
+}
+
+/**
+* Unset these form elements from the comment_form using hook_form_alter
+*/
+function soc_overrides_form_comment_form_alter(&$form, &$form_state) {
+  unset($form['_author']);
+}
+
+
+function soc_overrides_theme() {
+  return array(
+    'user_login_block' => array(
+      'template' => 'user_login_block',
+      'arguments' => array('form' => NULL),
+    )
+  );
+}
+?>
