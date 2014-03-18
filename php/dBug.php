@@ -639,7 +639,35 @@ class dBug {
       </script>
       
       <style type="text/css">
-        
+        .dBug_table { font: normal 12px Verdana, Arial, Helvetica, sans-serif; }
+        .dBug_table td { padding: 5px; background-color: #fff; }
+        .dBug_header { font-weight:bold; color:#fff; cursor:pointer; }
+        .dBug_key { cursor:pointer; }
+          
+        /* array */
+        table.dBug_array { background-color:#0b6d22; }
+        table.dBug_array td.dBug_arrayHeader { background-color:#2abf4d; }
+        table.dBug_array td.dBug_arrayKey { background-color:#c5f4d0; }
+
+        /* object */
+        table.dBug_object { background-color:#0000CC; }
+        table.dBug_object td.dBug_objectHeader { background-color:#345add; }
+        table.dBug_object td.dBug_objectKey { background-color:#CCDDFF; }
+
+        /* resource */
+        table.dBug_resourceC { background-color:#884488; }
+        table.dBug_resourceC td.dBug_resourceCHeader { background-color:#AA66AA; }
+        table.dBug_resourceC td.dBug_resourceCKey { background-color:#FFDDFF; }
+
+        /* resource */
+        table.dBug_resource { background-color:#884488; }
+        table.dBug_resource td.dBug_resourceHeader { background-color:#AA66AA; }
+        table.dBug_resource td.dBug_resourceKey { background-color:#FFDDFF; }
+
+        /* xml */
+        table.dBug_xml { background-color:#888888; }
+        table.dBug_xml td.dBug_xmlHeader { background-color:#AAAAAA; }
+        table.dBug_xml td.dBug_xmlKey { background-color:#DDDDDD; }
       </style>
 
 SCRIPTS;
