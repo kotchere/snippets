@@ -1,6 +1,6 @@
 <?php
 /**
- * dBug Classx
+ * dBug Class
  * =============
  * Dumps/Displays the contents of a variable in a colored tabular format
  * Based on the idea, javascript and css code of Macromedia's ColdFusion cfdump tag
