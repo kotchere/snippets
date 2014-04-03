@@ -1,5 +1,5 @@
 # nuke script to assign customized names to 3d multi-pass channels from Cinema4D
-# also has ability to remove, rename, add channels to make the nuke workflow easier
+# also has ability to remove, rename, add channels to make the nuke workflow easier.
 
 import nuke
 import nukescripts
